@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>僕の得意スポーツは何でしょう</h1>
+    <div>
+      <button id="soccer">サッカー</button>
+      <button id="basket">水泳</button>
+      <button id="track">陸上</button>
+    </div>
+    <div id="display">解答</div>
+
+    <script>
+      const soccer = document.getElementById("soccer")
+      const basket = document.getElementById("basket")
+      const track = document.getElementById("track")
+      const display = document.getElementById("display")
+
+      soccer.onclick = function() {
+        display.textContent = "はずれ！！　　よく空振りします"
+      }
+
+      basket.onclick = function() {
+        display.textContent = "はずれ！！　犬かきしかできません　"
+      }
+
+      track.onclick = function() {
+        display.textContent = "あたり！！　　ハードルやってます"
+      }
+    </script>
+  </body>
+</html>
