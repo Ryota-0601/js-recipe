@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WebExpertコーステンプレート</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="memo-input" />
+      <button id="add-button">追加</button>
+      <div id="memo-container"></div>
+    </div>
+
+    <script>
+      const memoInput = document.getElementById("memo-input")
+      const addButton = document.getElementById("add-button")
+      const memoContainer = document.getElementById("memo-container")
+
+      let memos = []
+
+      if (localStorage.memos) {
+        const memosJson = localStorage.memos
+        memos = JSON.parse(memosJson)
+        for (let i = 0; i < memos.length; i++) {
+          const div = document.createElement("div")
+          div.textContent = memos[i]
+          memoContainer.append(div)
+        }
+      }
+      addButton.onclick = function() {
+        console.log(memoInput.value)
+        memos.push(memoInput.value)
+        localStorage.memos = JSON.stringify(memos)
+        const memo = document.createElement("div")
+        memo.textContent = memoInput.value
+        memoContainer.append(memo)
+      }
+    </script>
+  </body>
+</html>
