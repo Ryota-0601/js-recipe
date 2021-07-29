@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myquiz</title>
+  </head>
+  <body>
+    <div id="quiz-container">
+      <h2 id="quiz-text"></h2>
+
+      <img id="quiz-image" />
+      <div id="choices-container">
+        <button id="choice-1"></button>
+        <button id="choice-2"></button>
+        <button id="choice-3"></button>
+      </div>
+      <div id="feedback"></div>
+    </div>
+
+    <script>
+      const quizText = document.getElementById("quiz-text")
+      const quizImage = document.getElementById("quiz-image")
+      const choice1 = document.getElementById("choice-1")
+      const choice2 = document.getElementById("choice-2")
+      const choice3 = document.getElementById("choice-3")
+      const feedback = document.getElementById("feedback")
+
+      const quiz = {
+        text: "このスポーツ選手の名前はなんでしょう",
+        image: "kante.jpg",
+
+        choices: [
+          {
+            text: "エンゴロカンテ",
+            feedback: "正解！！　プレミアリーグのチェルシーに所属しています",
+          },
+          {
+            text: "メッシ",
+            feedback: "残念！　バルセロナ所属です",
+          },
+          {
+            text: "ロナウド",
+            feedback: "残念！　ユベントス所属です",
+          },
+        ],
+      }
+
+      const reloadQuiz = function() {
+        quizText.textContent = "Q" + quiz.text
+        quizImage.src = "./images/" + quiz.image
+
+        choice1.textContent = quiz.choices[0].text
+        choice2.textContent = quiz.choices[1].text
+        choice3.textContent = quiz.choices[2].text
+      }
+
+      const choose = function(choiceNumber) {
+        feedback.textContent = quiz.choices[choiceNumber].feedback
+      }
+
+      choice1.onclick = function() {
+        choose(0)
+      }
+
+      choice2.onclick = function() {
+        choose(1)
+      }
+
+      choice3.onclick = function() {
+        choose(2)
+      }
+
+      reloadQuiz()
+    </script>
+  </body>
+</html>

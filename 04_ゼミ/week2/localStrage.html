@@ -31,11 +31,13 @@
       }
       addButton.onclick = function() {
         console.log(memoInput.value)
-        memos.push(memoInput.value)
-        localStorage.memos = JSON.stringify(memos)
+
         const memo = document.createElement("div")
         memo.textContent = memoInput.value
         memoContainer.append(memo)
+
+        memos.push(memoInput.value)
+        localStorage.memos = JSON.stringify(memos)
       }
     </script>
   </body>
